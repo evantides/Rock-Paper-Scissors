@@ -14,17 +14,22 @@ function introText(){
   const titleText = document.createElement('h1');
   titleText.innerText = "Lapis, Papyrus, Scalpellus";
   document.querySelector('body').appendChild(titleText);
+  titleText.id = 'titleText'; 
+
   const subTitle = document.createElement('h2');
   subTitle.innerText = "Welcome to the Game!";
   document.querySelector('body').appendChild(subTitle);
+  subTitle.id = 'subTitle';  
+
   const button = document.createElement('button');
   button.innerText = "Click to Play!";
   document.querySelector('body').appendChild(button);
+  button.id = 'play';  
   
   document.querySelector('button').onclick = function(){
-    document.querySelector('h1').remove();
-    document.querySelector('h2').remove();
-    document.querySelector('button').remove();
+    titleText.remove();
+    subTitle.remove();
+    button.remove();
     gameLoop();
   } 
 }
@@ -41,20 +46,26 @@ function gameLoop(){
   
   const instructions = document.createElement("h2");
   instructions.innerText = "Select An Option!";
+  instructions.id = 'instructions';
   document.querySelector('body').appendChild(instructions);
   
   const rock = document.createElement('button');
   rock.innerText = "Lapis";
+  rock.id = 'rock';
   document.querySelector('body').appendChild(rock);
+
   
   const paper = document.createElement('button');
   paper.innerText = "Papyrus";
+  paper.id = 'paper';
   document.querySelector('body').appendChild(paper);
   
   const scissors = document.createElement('button');
   scissors.innerText = "Scalpellus";
+  scissors.id = 'scissors';
   document.querySelector('body').appendChild(scissors);
-  
+
+
   computer.choice = compChooses();
   console.log("The Computer Chose: " + computer.choice);
   
@@ -101,38 +112,41 @@ function compareChoices(player, computer){
 function playAgain() {
   const playAgain = document.createElement('h3')
   playAgain.innerText = "Do you want to play again?";
+  playAgain.id = 'again';
   document.querySelector('body').appendChild(playAgain);
   
   const yes = document.createElement('button');
   yes.innerText = "Yes";
+  yes.id = 'yes';
   document.querySelector('body').appendChild(yes);
   
   const no = document.createElement('button');
   no.innerText = "No";
+  no.id = 'no';
   document.querySelector('body').appendChild(no);
   
   yes.onclick = function () {
-    document.querySelector('h2').remove();
-    document.querySelector('button').remove();
-    document.querySelector('button').remove();
-    document.querySelector('button').remove();
-    document.querySelector('button').remove();
-    document.querySelector('button').remove();
-    document.querySelector('p').remove();
-    document.querySelector('h3').remove();
+    document.querySelector('#again').remove();
+    document.querySelector('#rock').remove();
+    document.querySelector('#paper').remove();
+    document.querySelector('#scissors').remove();
+    document.querySelector('#yes').remove();
+    document.querySelector('#no').remove();
+    document.querySelector('.winner').remove();
+    document.querySelector('#instructions').remove();
  
     gameLoop();
   };
   
   no.onclick = function () {
-    document.querySelector('h2').remove();
-    document.querySelector('button').remove();
-    document.querySelector('button').remove();
-    document.querySelector('button').remove();
-    document.querySelector('button').remove();
-    document.querySelector('button').remove();
-    document.querySelector('p').remove();
-    document.querySelector('h3').remove();
+    document.querySelector('#again').remove();
+    document.querySelector('#rock').remove();
+    document.querySelector('#paper').remove();
+    document.querySelector('#scissors').remove();
+    document.querySelector('#yes').remove();
+    document.querySelector('#no').remove();
+    document.querySelector('.winner').remove();
+    document.querySelector('#instructions').remove();
     player.score = 0;
     computer.score = 0;
     introText();
@@ -143,6 +157,7 @@ function playAgain() {
 function compWins (){
   computer.score += 1;
   const winnerText = document.createElement('p')
+  winnerText.class = 'winner';
   winnerText.innerText = "The Computer Wins! The computer chose " + computer.choice + " and the player chose " + player.choice + ". The Score is CPU: " + computer.score +" vs  PLAY: " + player.score;
   document.querySelector('body').appendChild(winnerText);
   playAgain();
@@ -152,6 +167,7 @@ function tie() {
   computer.score += 1;
   player.score += 1;
   const tieText = document.createElement('p')
+  tietext.class = 'winner';
   tieText.innerText = "This has resulted in a tie! Both the player and computer chose " + player.choice + ". The Score is CPU: " + computer.score +" vs  PLAY: " + player.score;
   document.querySelector('body').appendChild(tieText);
   playAgain();
@@ -160,6 +176,7 @@ function tie() {
 function playWins () {
   player.score += 1;
   const winnerText = document.createElement('p')
+  winnerText.class = 'winner';
   winnerText.innerText = "The Player Wins! The computer chose " + computer.choice + " and the player chose " + player.choice + ". The Score is CPU: " + computer.score +" vs  PLAY: " + player.score;
   document.querySelector('body').appendChild(winnerText);
   playAgain();
