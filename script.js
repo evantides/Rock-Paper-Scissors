@@ -67,7 +67,6 @@ function gameLoop(){
 
 
   computer.choice = compChooses();
-  console.log("The Computer Chose: " + computer.choice);
   
   rock.onclick = function() {
     player.choice = options[0];
@@ -157,7 +156,7 @@ function playAgain() {
 function compWins (){
   computer.score += 1;
   const winnerText = document.createElement('p')
-  winnerText.class = 'winner';
+  winnerText.className = 'winner';
   winnerText.innerText = "The Computer Wins! The computer chose " + computer.choice + " and the player chose " + player.choice + ". The Score is CPU: " + computer.score +" vs  PLAY: " + player.score;
   document.querySelector('body').appendChild(winnerText);
   playAgain();
@@ -167,7 +166,7 @@ function tie() {
   computer.score += 1;
   player.score += 1;
   const tieText = document.createElement('p')
-  tietext.class = 'winner';
+  tieText.className = 'winner';
   tieText.innerText = "This has resulted in a tie! Both the player and computer chose " + player.choice + ". The Score is CPU: " + computer.score +" vs  PLAY: " + player.score;
   document.querySelector('body').appendChild(tieText);
   playAgain();
@@ -176,7 +175,7 @@ function tie() {
 function playWins () {
   player.score += 1;
   const winnerText = document.createElement('p')
-  winnerText.class = 'winner';
+  winnerText.className = 'winner';
   winnerText.innerText = "The Player Wins! The computer chose " + computer.choice + " and the player chose " + player.choice + ". The Score is CPU: " + computer.score +" vs  PLAY: " + player.score;
   document.querySelector('body').appendChild(winnerText);
   playAgain();
