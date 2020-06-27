@@ -12,9 +12,10 @@ function submitButton () {
 		submit.disabled = true;
 		let value = splitIt();
 		value = Math.round( value * 100 + Number.EPSILON ) / 100
+		value = value.toFixed(2);
 
 		const final = document.getElementById('finalBreakdown');
-		final.innerText = value + " per patron!";
+		final.innerText = "$" + value + " per patron!";
 
 		const again = document.querySelector('#again');
 		again.className = 'displayIt';
@@ -78,6 +79,7 @@ function splitIt () {
 
 }
 
+//reloads the webpage
 function doItAgain() {
 	location.reload();
 	return false;
