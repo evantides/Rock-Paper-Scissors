@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<link rel = "stylesheet"
+   	type = "text/css"
+   	href = "stylesheet.css" />
+	<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&family=Raleway:wght@600&display=swap" rel="stylesheet">
+	<title>CodePen - Rock Paper Scissors</title>
+</head>
+<body>
+	<header>
+		<h1>Game Site!</h1>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="">About</a></li>
+			<li><a href="RPS.html">RPS - Game 1</a></li>
+			<li><a href="bill-splitter.html">Bill Splitter</a></li>
+		</ul>
+	</header>
+	<script  src="./bill-splitter.js"></script>
+	<h2>Welcome to the Bill Splitter</h2>
+
+	<p>Use this to split the bill between your companions. Let me know if you come across any bugs.</p>
+  
+  	<div id=splitterMain>
+  		<div class='separated'>
+	      <h4 id="quest">Do you want to add a tip?</h4>
+	      <button id="yes" onclick="Indeed()">Yes</button>
+	      <button id="no" onclick="submitButton()">No</button>
+	    </div>
+		<form>
+	    	<label for="totalCost">Total Cost</label><br>
+			<input type="text" id="totalCost" name ="totalCost"><br>
+			<label for="patronNum">Number of Patrons</label><br>
+			<input type="text" id="patronNum" name="patronNum"><br>
+		</form>
+
+		<h4>Your Final Breakdown Is: </h4><p id=finalBreakdown></p>
+
+		<button class="noShow" id="again" onclick="doItAgain()">Again?</button>
+	</div>
+  
+</body>
+</html>
